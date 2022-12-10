@@ -43,6 +43,7 @@ Bilet:: Bilet (const Bilet& b)
 Bilet::~Bilet()
 {
 	delete[] this->zona;
+	
 }
 
 //operator egal
@@ -94,6 +95,7 @@ char* Bilet::getZona()
 }
 
 //metode generice
+/*
 
 int Bilet::BileteDisponibile(Bilet& b)
 {
@@ -102,6 +104,9 @@ int Bilet::BileteDisponibile(Bilet& b)
 	else
 		return 0;
 }
+
+*/
+
 
 
 
@@ -118,6 +123,7 @@ istream& operator >> (istream& in, Bilet& b)
 {
 	in >> b.loc;
 	in >> b.nume_eveniment;
+
 	delete[] b.zona;
 	char sir[100];
 	in >> sir;

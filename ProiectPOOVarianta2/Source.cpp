@@ -13,7 +13,4 @@ int main()
 	cout << e1;
 	
 	
-
-
-	
 }

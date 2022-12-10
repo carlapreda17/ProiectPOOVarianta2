@@ -13,7 +13,7 @@ private:
 	string ora;
 	string nume_eveniment;
 	int bilete_disponibile;
-	Bilet b;
+	//Bilet b;
 
 
 public:
@@ -30,7 +30,7 @@ public:
 	string getData();
 	void setOra(string OraNoua);
 	string getOra();
-	void setNumeEveniment(string NumeEvNou);
+	void setNumeEveniment(string NumeEveniment);
 	string getNumeEveniment();
 	void setBileteDisp(int BileteDisp);
 	int getBileteDisp();
@@ -39,8 +39,8 @@ public:
 
 	static string schimbareOras(Eveniment* e);
 
-	string ValidareBilete(Eveniment& e);
-	string ValidareEveniment(Eveniment& e);
+//	string ValidareBilete(Eveniment& e);
+//string ValidareEveniment(Eveniment& e);
 
 
 	

@@ -8,11 +8,11 @@ class Bilet
 {
 private:
 	static int bilete_totale;
-    int id_bilet;
+	int id_bilet;
 	int loc;
 	string nume_eveniment;
 	char* zona;
-	Eveniment e;
+	//Eveniment e;
 
 public:
 	Bilet();
@@ -39,6 +39,5 @@ public:
 
 	friend istream& operator >> (istream& in, Bilet& b);
 	friend ostream& operator<<(ostream& out, Bilet b);
-	
-};
 
+};

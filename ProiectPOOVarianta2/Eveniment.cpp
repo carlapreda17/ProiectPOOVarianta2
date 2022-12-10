@@ -98,7 +98,9 @@ int Eveniment::getBileteDisp()
  }
 
  //metode generice
-
+ 
+ 
+ /*
  string Eveniment::ValidareBilete(Eveniment& e)
  {
 	 string validare = "bilet valid";
@@ -120,6 +122,9 @@ int Eveniment::getBileteDisp()
 	 else return incorect;
 	
  }
+ 
+ */
+ 
 
 
 //supraincarcare operatori
@@ -127,21 +132,20 @@ int Eveniment::getBileteDisp()
 
  
 
- istream& operator>>(istream& in, Eveniment& f)
+ istream&  operator>>(istream& in, Eveniment& f)
  {
 	
 	 in >> f.locatie;
 	 in >> f.data;
 	 in >> f.ora;
-	 in >> f.bilete_disponibile;
 	 in >> f.nume_eveniment;
+	 in >> f.bilete_disponibile;
 	 return in;
  }
  ostream& operator<<(ostream& out, Eveniment f)
  {
-	
+	 out << f.oras << endl;
 	 out << f.locatie << endl;
-	 out << f.oras<<endl;
 	 out << f.data << endl;
 	 out << f.ora << endl;
 	 out << f.nume_eveniment << endl;
