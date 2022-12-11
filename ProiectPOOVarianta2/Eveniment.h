@@ -39,11 +39,11 @@ public:
 
 	static string schimbareOras(Eveniment* e);
 
-//	string ValidareBilete(Eveniment& e);
-//string ValidareEveniment(Eveniment& e);
+  // string ValidareBilete(Eveniment& e);
+   //string ValidareEveniment(Eveniment& e);
 
-
-	
+	Eveniment operator++(int i);
+	Eveniment operator+(Eveniment f);
 
 	friend istream& operator>>(istream& in, Eveniment& f);
 	friend ostream& operator<<(ostream& out, Eveniment f);

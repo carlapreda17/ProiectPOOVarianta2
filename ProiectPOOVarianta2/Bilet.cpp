@@ -48,6 +48,25 @@ Bilet::~Bilet()
 
 //operator egal
 
+Bilet& Bilet::operator=(const Bilet& b)
+{
+	if (this != &b)
+	{
+		delete[] this->zona;
+		this->id_bilet = b.id_bilet;
+		this->loc = b.loc;
+		this->nume_eveniment = b.nume_eveniment;
+		if (b.zona != nullptr)
+		{
+			this->zona = new char[strlen(b.zona) + 1];
+			strcpy_s(this->zona, strlen(b.zona) + 1, b.zona);
+		}
+	}
+	return *this;
+}
+
+
+
 
 //setteri si getteri
 void Bilet::setIdBilet(int id_bilet_nou)
@@ -117,7 +136,13 @@ Bilet::operator string()
 	return  nume_eveniment;
 }
 
-//+operator --
+
+Bilet Bilet::operator--(int i)
+{
+	Bilet copie = *this;
+	this->loc--;
+	return copie;
+}
 
 istream& operator >> (istream& in, Bilet& b)
 {

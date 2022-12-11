@@ -48,6 +48,27 @@ Locatie::~Locatie()
 
 //opertaor egal
 
+Locatie& Locatie::operator=(const Locatie& l)
+{
+	if (this != &l)
+	{
+		
+		delete[] nr_locuri_pe_rand;
+		this->id_locatie = l.id_locatie;
+		
+		if (l.nr_locuri_pe_rand != nullptr && l.nr_randuri > 0)
+		{
+			this->nr_locuri_pe_rand = new int[l.nr_randuri];
+			for (int i = 0; i < l.nr_randuri; i++)
+			{
+				this->nr_locuri_pe_rand[i] = l.nr_locuri_pe_rand[i];
+
+			}
+			this->nr_randuri = l.nr_randuri;
+		}
+	}
+	return *this;
+}
 
 
 //getter setteri
@@ -106,26 +127,6 @@ bool Locatie::validareNrLocuri(Locatie& l)
 
  //metoda generica2-popularea matricei cu locuri in functie de locul ales in bilet
 
-int** Locatie::MatriceLocuri(Locatie& l)
-{
-	int** locuri = new int* [l.nr_randuri];
-	for (int i = 0; i < l.nr_randuri; i++)
-	{
-		locuri[i] = new int[l.nr_locuri_pe_rand[i]];
-	}
-	for (int i = 0; i < l.nr_randuri; i++)
-	{
-		for (int j = 0; j < l.nr_locuri_pe_rand[i]; j++)
-		{
-			if (*(*(locuri + i) + j)== b.getLoc())
-			{
-				locuri[i][j] = 1;
-			}
-			else locuri[i][j] = 0;
-		}
-	}
-	return locuri;
-}
 
 
 
@@ -153,9 +154,12 @@ bool Locatie:: operator!()
 //citire afisare
 istream& operator>>(istream& in, Locatie& l)
 {
+	cout << "Id locatie: ";
 	in >> l.id_locatie;
+	cout << "Numar de randuri: ";
 	in >> l.nr_randuri;
 
+	cout << "Numar de locuri pe fiecare rand: ";
 	delete[] l.nr_locuri_pe_rand;
 	l.nr_locuri_pe_rand = new int[l.nr_randuri];
 	for (int i = 0; i < l.nr_randuri; i++)
@@ -166,10 +170,11 @@ istream& operator>>(istream& in, Locatie& l)
 	return in;
 }
 ostream& operator<<(ostream& out, Locatie l) {
-	out << l.id_locatie << endl;
-	out << l.nr_maxim_locuri << endl;
-	out << l.nr_randuri << endl;
+	out <<"Id locatie: "<<l.id_locatie << endl;
+	out <<"Numar maxim de locuri: "<<l.nr_maxim_locuri << endl;
+	out <<"Numar de randuri: "<<l.nr_randuri << endl;
 	
+	out << "Numar de locuri pe fiecare rand: ";
 	if (l.nr_locuri_pe_rand != nullptr)
 	{
 		for (int i = 0; i < l.nr_randuri; i++)
@@ -177,5 +182,7 @@ ostream& operator<<(ostream& out, Locatie l) {
 			out << l.nr_locuri_pe_rand[i] << " ";
 		}
 	}
+	cout << endl;
+	
 	return out;
 }

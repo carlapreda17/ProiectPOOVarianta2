@@ -100,8 +100,10 @@ int Eveniment::getBileteDisp()
  //metode generice
  
  
+ 
  /*
- string Eveniment::ValidareBilete(Eveniment& e)
+ 
+  string Eveniment::ValidareBilete(Eveniment& e)
  {
 	 string validare = "bilet valid";
 	 string incorect = "bilet invalid";
@@ -122,34 +124,49 @@ int Eveniment::getBileteDisp()
 	 else return incorect;
 	
  }
- 
  */
  
 
 
 //supraincarcare operatori
  
+ Eveniment Eveniment::operator++(int i)
+ {
+	 Eveniment copie = *this;
+	 this->bilete_disponibile++;
+	 return copie;
+ }
 
- 
+
+ Eveniment Eveniment::operator+(Eveniment f)
+ {
+	 Eveniment copie = *this;
+	 copie.bilete_disponibile = bilete_disponibile + f.bilete_disponibile;
+	 return copie;
+ }
 
  istream&  operator>>(istream& in, Eveniment& f)
  {
-	
+	cout<<"Nume locatie : ";
 	 in >> f.locatie;
+	 cout << "Data eveniment: ";
 	 in >> f.data;
+	 cout << "Ora eveniment: ";
 	 in >> f.ora;
+	 cout << "Nume eveniment: ";
 	 in >> f.nume_eveniment;
+	 cout << "Bilete disponibile ";
 	 in >> f.bilete_disponibile;
 	 return in;
  }
  ostream& operator<<(ostream& out, Eveniment f)
  {
-	 out << f.oras << endl;
-	 out << f.locatie << endl;
-	 out << f.data << endl;
-	 out << f.ora << endl;
-	 out << f.nume_eveniment << endl;
-	 out << f.bilete_disponibile << endl;
+	 out <<"Oras: "<< f.oras << endl;
+	 out <<"Nume locatie : "<< f.locatie << endl;
+	 out <<"Data eveniment: "<< f.data << endl;
+	 out << "Ora eveniment: "<<f.ora << endl;
+	 out << "Nume eveniment: "<<f.nume_eveniment << endl;
+	 out << "Bilete disponibile "<<f.bilete_disponibile << endl;
 	 return out;
 
  }

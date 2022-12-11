@@ -19,6 +19,7 @@ public:
 	Bilet(int id_bilet, int loc, string nume_eveniment, char* zona);
 	Bilet(const Bilet& b);
 	~Bilet();
+	Bilet& operator=(const Bilet& b);
 
 
 	void setIdBilet(int id_bilet_nou);
@@ -31,11 +32,11 @@ public:
 	char* getZona();
 
 
-	int BileteDisponibile(Bilet& b);
+	//int BileteDisponibile(Bilet& b);
 
 
 	operator string();
-
+	Bilet operator--(int i);
 
 	friend istream& operator >> (istream& in, Bilet& b);
 	friend ostream& operator<<(ostream& out, Bilet b);

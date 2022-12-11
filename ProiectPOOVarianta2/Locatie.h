@@ -16,6 +16,9 @@ public:
 	Locatie(int id_locatie, int nr_maxim_locuri, int nr_randuri, int* nr_locuri_pe_rand);
 	Locatie(const Locatie& l);
 	~Locatie();
+	Locatie& operator=(const Locatie& l);
+
+
 	void setIdLocatie(int id_loc);
 	int getIdLocatie();
 	void setNrRanduri(int nrRanduri);
@@ -26,7 +29,7 @@ public:
 
 
 	bool validareNrLocuri(Locatie& l);
-	int** MatriceLocuri(Locatie& l);
+	//int** MatriceLocuri(Locatie& l);
 
 	int& operator[](int index);
 	bool operator!();
