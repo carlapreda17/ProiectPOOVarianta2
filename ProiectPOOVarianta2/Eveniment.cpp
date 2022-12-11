@@ -1,4 +1,5 @@
 #include "Eveniment.h"
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -100,33 +101,29 @@ int Eveniment::getBileteDisp()
  //metode generice
  
  
- 
- /*
- 
-  string Eveniment::ValidareBilete(Eveniment& e)
+ string Eveniment::ValidareBilete(Eveniment& e)
  {
 	 string validare = "bilet valid";
 	 string incorect = "bilet invalid";
-	 if (b.getIdBilet() > e.bilete_disponibile)
+	 if (b->getIdBilet() > e.bilete_disponibile)
 		 return incorect;
 	 else
 		 return validare;
  }
-
+ 
  string Eveniment::ValidareEveniment(Eveniment& e)
  {
 	 string validare = "Felicitari! Biletul corespunde cu evenimentul";
 	 string incorect = "Ne pare rau! Nu este evinemntul potrivit";
-	 if (b.getNumeEveniment() == e.nume_eveniment)
+	 if (b->getNumeEveniment() == e.nume_eveniment)
 	 {
 		 return validare;
 	 }
 	 else return incorect;
 	
  }
- */
  
-
+ 
 
 //supraincarcare operatori
  

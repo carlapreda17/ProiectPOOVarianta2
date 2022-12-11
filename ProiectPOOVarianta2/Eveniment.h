@@ -3,6 +3,9 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
+class Bilet;
+ 
 class Eveniment
 {
 private:
@@ -13,7 +16,7 @@ private:
 	string ora;
 	string nume_eveniment;
 	int bilete_disponibile;
-	//Bilet b;
+	Bilet* b;
 
 
 public:
@@ -39,8 +42,8 @@ public:
 
 	static string schimbareOras(Eveniment* e);
 
-  // string ValidareBilete(Eveniment& e);
-   //string ValidareEveniment(Eveniment& e);
+  string ValidareBilete(Eveniment& e);
+   string ValidareEveniment(Eveniment& e);
 
 	Eveniment operator++(int i);
 	Eveniment operator+(Eveniment f);

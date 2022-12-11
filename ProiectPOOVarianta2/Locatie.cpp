@@ -22,6 +22,11 @@ Locatie::Locatie(int id_locatie, int nr_maxim_locuri, int nr_randuri, int* nr_lo
 		}
 		this->nr_randuri = nr_randuri;
 	}
+	else
+	{
+		this->nr_randuri = 0;
+		this->nr_locuri_pe_rand = nullptr;
+	}
 }
 
 Locatie::Locatie(const Locatie& l) :nr_maxim_locuri(l.nr_maxim_locuri)
@@ -37,6 +42,11 @@ Locatie::Locatie(const Locatie& l) :nr_maxim_locuri(l.nr_maxim_locuri)
 
 		}
 		this->nr_randuri = l.nr_randuri;
+	}
+	else
+	{
+		this->nr_randuri = 0;
+		this->nr_locuri_pe_rand = nullptr;
 	}
 }
 
