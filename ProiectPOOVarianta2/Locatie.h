@@ -29,7 +29,7 @@ public:
 
 
 	bool validareNrLocuri(Locatie& l);
-	//int** MatriceLocuri(Locatie& l);
+	int** MatriceLocuri(Locatie& l);
 
 	int& operator[](int index);
 	bool operator!();

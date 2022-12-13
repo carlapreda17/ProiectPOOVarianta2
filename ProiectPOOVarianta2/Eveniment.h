@@ -5,7 +5,7 @@
 using namespace std;
 
 class Bilet;
- 
+
 class Eveniment
 {
 private:
@@ -17,6 +17,9 @@ private:
 	string nume_eveniment;
 	int bilete_disponibile;
 	Bilet* b;
+	
+	
+	
 
 
 public:

@@ -114,6 +114,7 @@ void Locatie::setNrLocuriPeRand(int* nr_locuri_pe_randNou, int nr_randuri)
 			this->nr_locuri_pe_rand[i] = nr_locuri_pe_randNou[i];
 		}
 	}
+	
 }
 int* Locatie::getNrLocuriPeRand()
 {
@@ -137,7 +138,46 @@ bool Locatie::validareNrLocuri(Locatie& l)
 
  //metoda generica2-popularea matricei cu locuri in functie de locul ales in bilet
 
-
+int** Locatie::MatriceLocuri(Locatie& l)
+{
+	int** locuri = new int* [l.nr_randuri];
+	for (int i = 0; i < l.nr_randuri; i++)
+	{
+		locuri[i] = new int[l.nr_locuri_pe_rand[i]];
+	}
+	for (int i = 0; i < l.nr_randuri; i++)
+	{
+		for (int j = 0; j < l.nr_locuri_pe_rand[i]; j++)
+			locuri[i][j] = 0;
+	}
+	int i = 0;
+	while (i < l.nr_randuri)
+	{
+		if (b.getLoc() < l.nr_locuri_pe_rand[i])
+		{
+			for (int j = 1; j <= l.nr_locuri_pe_rand[i]; j++)
+			{
+				if (b.getLoc() == j)
+				{
+					locuri[i][j] = 1;
+				}
+			}
+		}
+		else {
+			if (b.getLoc() ==l.nr_locuri_pe_rand[i])
+			{
+				locuri[i][l.nr_locuri_pe_rand[i]] = 1;
+			}
+			else
+			{
+				i++;
+			}
+		}
+		
+	}
+	
+	return locuri;
+}
 
 
 

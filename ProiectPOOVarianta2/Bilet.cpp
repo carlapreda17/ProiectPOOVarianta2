@@ -113,18 +113,31 @@ char* Bilet::getZona()
 	return this->zona;
 }
 
+
 //metode generice
-/*
 
 int Bilet::BileteDisponibile(Bilet& b)
 {
-	if (b.id_bilet < e.bilete_disponibile)
-		return e.bilete_disponibile - b.id_bilet;
+	if (b.id_bilet < e->getBileteDisp())
+		return e->getBileteDisp() - b.id_bilet;
 	else
 		return 0;
 }
 
-*/
+
+string Bilet::ValidareIdUnic(Bilet& b)
+{
+	string valid = "Id-ul este valid";
+	string incorect = "Id fals";
+	if (b.id_bilet < e->getBileteDisp())
+		return valid;
+	else
+	{
+		return incorect;
+	}
+
+}
+
 
 
 

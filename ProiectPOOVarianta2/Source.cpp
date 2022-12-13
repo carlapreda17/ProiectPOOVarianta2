@@ -11,6 +11,14 @@ int main()
 	Eveniment e1; //va permite citirea caracteristicilor evenimentului
 	cin >> e1;
 	cout << e1;
+
+	Bilet b1;
+	cin >> b1;
+	//cout << b1;
+
+
+
+
 	
 	
 }

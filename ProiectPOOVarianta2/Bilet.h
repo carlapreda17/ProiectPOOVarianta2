@@ -4,6 +4,8 @@
 #include <string>
 using namespace std;
 
+class Eveniment;
+
 class Bilet
 {
 private:
@@ -12,7 +14,7 @@ private:
 	int loc;
 	string nume_eveniment;
 	char* zona;
-	//Eveniment e;
+	Eveniment* e;
 
 public:
 	Bilet();
@@ -32,13 +34,14 @@ public:
 	char* getZona();
 
 
-	//int BileteDisponibile(Bilet& b);
-
+	int BileteDisponibile(Bilet& b);
+	string ValidareIdUnic(Bilet& b);
 
 	operator string();
 	Bilet operator--(int i);
 
 	friend istream& operator >> (istream& in, Bilet& b);
 	friend ostream& operator<<(ostream& out, Bilet b);
+	friend class Eveniment;
 
 };
