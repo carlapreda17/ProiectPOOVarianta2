@@ -103,11 +103,11 @@ int Eveniment::getBileteDisp()
 
  //metode generice
  
- string Eveniment:: ValidareSpatiu(Eveniment& e)
+ string Eveniment:: ValidareSpatiu()
  {
 	 string valid = "Spatiul este disponibil";
 	 string invalid = "Spatiul este prea mic";
-	 if (e.bilete_disponibile < l.getNrMaximLocuri())
+	 if (this->bilete_disponibile < l.getNrMaximLocuri())
 	 {
 		 return valid;
 	 }
@@ -118,12 +118,12 @@ int Eveniment::getBileteDisp()
 
  }
 
- int Eveniment::Stadion_Arena(Eveniment& e)
+ int Eveniment::Stadion_Arena()
  {
-	 if (e.locatie == "Stadion_National_Arena")
+	 if (this->locatie == "Stadion_National_Arena")
 	 {
-		 e.bilete_disponibile = l.getNrMaximLocuri();
-		 return e.bilete_disponibile;
+		 this->bilete_disponibile = l.getNrMaximLocuri();
+		 return this->bilete_disponibile;
 	 }
 
 }

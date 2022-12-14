@@ -108,20 +108,20 @@ char* Bilet::getZona()
 
 //metode generice
 
-int Bilet::BileteDisponibile(Bilet& b)
+int Bilet::BileteDisponibile()
 {
-	if (b.id_bilet < e.getBileteDisp())
-		return e.getBileteDisp() - b.id_bilet;
+	if (this->id_bilet< e.getBileteDisp())
+		return e.getBileteDisp() - this->id_bilet;
 	else
 		return 0;
 }
 
 
-string Bilet::ValidareBilete(Bilet& b)
+string Bilet::ValidareBilete()
 {
 	string validare = "bilet valid";
 	string incorect = "bilet invalid";
-	if(b.id_bilet>e.getBileteDisp())
+	if(this->id_bilet>e.getBileteDisp())
 		return incorect;
 	else
 		return validare;

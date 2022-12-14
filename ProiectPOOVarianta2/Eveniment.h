@@ -41,8 +41,8 @@ public:
 
 	static string schimbareOras(Eveniment* e);
 
-	string ValidareSpatiu(Eveniment& e);
-	int Stadion_Arena(Eveniment& e);
+	string ValidareSpatiu();
+	int Stadion_Arena();
 
 	Eveniment operator++(int i);
 	Eveniment operator+(Eveniment f);

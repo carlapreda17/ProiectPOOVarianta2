@@ -125,11 +125,11 @@ int Locatie::getNrMaximLocuri()
 	return nr_maxim_locuri;
 }
 //metoda generica1
-bool Locatie::validareNrLocuri(Locatie& l)
+bool Locatie::validareNrLocuri()
 {
-	for (int i = 0; i < l.nr_randuri; i++)
+	for (int i = 0; i < this->nr_randuri; i++)
 	{
-		if (l.nr_locuri_pe_rand[i] > l.nr_maxim_locuri)
+		if (this->nr_locuri_pe_rand[i] > this->nr_maxim_locuri)
 			return false;
 	}
 	return true;
@@ -140,16 +140,16 @@ bool Locatie::validareNrLocuri(Locatie& l)
  //metoda generica2-popularea matricei cu locuri in functie de locul ales in bilet -creez metoda ocupa loc si o apelez in bilet cand vreau sa schimb locul in 0-1
 
 
-int** Locatie::MatriceLocuri(Locatie& l)
+int** Locatie::MatriceLocuri(int nr_randuri, int* nr_locuri_rand)
 {
-	int** locuri = new int* [l.nr_randuri];
-	for (int i = 0; i < l.nr_randuri; i++)
+	int** locuri = new int* [nr_randuri];
+	for (int i = 0; i < nr_randuri; i++)
 	{
-		locuri[i] = new int[l.nr_locuri_pe_rand[i]];
+		locuri[i] = new int[nr_locuri_pe_rand[i]];
 	}
-	for (int i = 0; i < l.nr_randuri; i++)
+	for (int i = 0; i < nr_randuri; i++)
 	{
-		for (int j = 0; j < l.nr_locuri_pe_rand[i]; j++)
+		for (int j = 0; j < nr_locuri_pe_rand[i]; j++)
 			locuri[i][j] = 0;
 	}
 	

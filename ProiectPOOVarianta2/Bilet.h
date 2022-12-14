@@ -30,8 +30,8 @@ public:
 	void setZona(char* zonaNoua);
 	char* getZona();
 
-	string ValidareBilete(Bilet& b);
-	int BileteDisponibile(Bilet& b);
+	string ValidareBilete();
+	int BileteDisponibile();
 	
 
 	Bilet operator--(int i);

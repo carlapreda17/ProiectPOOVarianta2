@@ -27,8 +27,8 @@ public:
 	int getNrMaximLocuri();
 
 
-	bool validareNrLocuri(Locatie& l);
-	int** MatriceLocuri(Locatie& l);
+	bool validareNrLocuri();
+	int** MatriceLocuri(int nr_randuri, int* nr_locuri_rand);
 
 	int operator[](int index);
 	bool operator!();
