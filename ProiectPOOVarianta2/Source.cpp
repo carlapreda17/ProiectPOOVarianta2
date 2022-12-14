@@ -12,9 +12,11 @@ int main()
 	cin >> e1;
 	cout << e1;
 
-	Bilet b1;
-	cin >> b1;
+
+	//Bilet b1;
+	//cin >> b1;
 	//cout << b1;
+
 
 
 

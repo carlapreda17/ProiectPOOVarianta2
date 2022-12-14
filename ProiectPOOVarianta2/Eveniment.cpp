@@ -14,8 +14,9 @@ Eveniment::Eveniment()
 	this->ora = "";
 	this->nume_eveniment = "";
 	this->bilete_disponibile = 0;
+	Locatie l;
 }
-Eveniment::Eveniment( string locatie, string data, string ora, string nume_eveniment, int bilete_disponibile)
+Eveniment::Eveniment( string locatie, string data, string ora, string nume_eveniment, int bilete_disponibile, Locatie l)
 {
 
 	this->locatie = locatie;
@@ -23,6 +24,7 @@ Eveniment::Eveniment( string locatie, string data, string ora, string nume_eveni
 	this->ora = ora;
 	this->nume_eveniment = nume_eveniment;
 	this->bilete_disponibile = bilete_disponibile;
+	this->l = l;
 }
 Eveniment::Eveniment(const Eveniment& f)
 {
@@ -32,6 +34,7 @@ Eveniment::Eveniment(const Eveniment& f)
 	this->ora = f.ora;
 	this->nume_eveniment = f.nume_eveniment;
 	this->bilete_disponibile = f.bilete_disponibile;
+	this->l = l;
 }
 
 //setteri si getteri
@@ -100,30 +103,30 @@ int Eveniment::getBileteDisp()
 
  //metode generice
  
- 
- string Eveniment::ValidareBilete(Eveniment& e)
+ string Eveniment:: ValidareSpatiu(Eveniment& e)
  {
-	 string validare = "bilet valid";
-	 string incorect = "bilet invalid";
-	 if (b->getIdBilet() > e.bilete_disponibile)
-		 return incorect;
-	 else
-		 return validare;
- }
- 
- string Eveniment::ValidareEveniment(Eveniment& e)
- {
-	 string validare = "Felicitari! Biletul corespunde cu evenimentul";
-	 string incorect = "Ne pare rau! Nu este evinemntul potrivit";
-	 if (b->getNumeEveniment() == e.nume_eveniment)
+	 string valid = "Spatiul este disponibil";
+	 string invalid = "Spatiul este prea mic";
+	 if (e.bilete_disponibile < l.getNrMaximLocuri())
 	 {
-		 return validare;
+		 return valid;
 	 }
-	 else return incorect;
-	
+	 else
+	 {
+		 return invalid;
+	 }
+
  }
- 
- 
+
+ int Eveniment::Stadion_Arena(Eveniment& e)
+ {
+	 if (e.locatie == "Stadion_National_Arena")
+	 {
+		 e.bilete_disponibile = l.getNrMaximLocuri();
+		 return e.bilete_disponibile;
+	 }
+
+}
 
 //supraincarcare operatori
  

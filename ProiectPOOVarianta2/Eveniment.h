@@ -1,10 +1,10 @@
 #pragma once
-#include "Bilet.h"
+#include "Locatie.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
-class Bilet;
+
 
 class Eveniment
 {
@@ -16,17 +16,13 @@ private:
 	string ora;
 	string nume_eveniment;
 	int bilete_disponibile;
-	Bilet* b;
-	
-	
-	
-
+	Locatie l;
 
 public:
 
 	
 	Eveniment();
-	Eveniment(string locatie, string data, string ora, string nume_eveniment, int bilete_disponibile);
+	Eveniment(string locatie, string data, string ora, string nume_eveniment, int bilete_disponibile, Locatie l);
 	Eveniment(const Eveniment& f);
 
 
@@ -45,15 +41,15 @@ public:
 
 	static string schimbareOras(Eveniment* e);
 
-  string ValidareBilete(Eveniment& e);
-   string ValidareEveniment(Eveniment& e);
+	string ValidareSpatiu(Eveniment& e);
+	int Stadion_Arena(Eveniment& e);
 
 	Eveniment operator++(int i);
 	Eveniment operator+(Eveniment f);
 
 	friend istream& operator>>(istream& in, Eveniment& f);
 	friend ostream& operator<<(ostream& out, Eveniment f);
-	friend class Bilet;
+	
 
 }; 
 

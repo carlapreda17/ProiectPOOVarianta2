@@ -1,5 +1,4 @@
 #pragma once
-#include "Bilet.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -10,7 +9,7 @@ private:
 	const int nr_maxim_locuri=10000;
 	int nr_randuri;
 	int* nr_locuri_pe_rand;
-	Bilet b;
+	
 public:
 	Locatie();
 	Locatie(int id_locatie, int nr_maxim_locuri, int nr_randuri, int* nr_locuri_pe_rand);
@@ -31,13 +30,13 @@ public:
 	bool validareNrLocuri(Locatie& l);
 	int** MatriceLocuri(Locatie& l);
 
-	int& operator[](int index);
+	int operator[](int index);
 	bool operator!();
 
 
 	friend istream& operator>>(istream& in, Locatie& l);
 	friend ostream& operator<<(ostream& out, Locatie l);
-	friend class Bilet;
+	
 	
 	
 	

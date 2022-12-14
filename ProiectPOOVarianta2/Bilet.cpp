@@ -1,5 +1,5 @@
 #include "Bilet.h"
-
+#include "Eveniment.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -11,34 +11,35 @@ Bilet::Bilet()
 	Bilet::bilete_totale++;
 	this->id_bilet = bilete_totale;
 	this->loc = 0;
-	this->nume_eveniment = "";
 	this->zona = new char[1];
 	strcpy_s(zona, 1, "");
+	Eveniment e;
 
 }
 
-Bilet::Bilet(int id_bilet, int loc, string nume_eveniment, char* zona):Bilet()
+Bilet::Bilet(int id_bilet, int loc, char* zona, Eveniment e):Bilet()
 {
 	
 	this->loc = loc;
-	this->nume_eveniment = nume_eveniment;
 	if (zona != nullptr) {
 		this->zona = new char[strlen(zona) + 1];
 		strcpy_s(this->zona, strlen(zona) + 1, zona);
 	}
+	this->e = e;
 }
 
 Bilet:: Bilet (const Bilet& b)
 {
 	this->id_bilet = b.id_bilet;
 	this->loc = b.loc;
-	this->nume_eveniment = b.nume_eveniment;
 	if (b.zona != nullptr)
 	{
 		this->zona = new char[strlen(b.zona) + 1];
 		strcpy_s(this->zona, strlen(b.zona) + 1, b.zona);
 	}
+	this->e = b.e;
 }
+
 
 Bilet::~Bilet()
 {
@@ -55,13 +56,13 @@ Bilet& Bilet::operator=(const Bilet& b)
 		delete[] this->zona;
 		this->id_bilet = b.id_bilet;
 		this->loc = b.loc;
-		this->nume_eveniment = b.nume_eveniment;
 		if (b.zona != nullptr)
 		{
 			this->zona = new char[strlen(b.zona) + 1];
 			strcpy_s(this->zona, strlen(b.zona) + 1, b.zona);
 		}
 	}
+	this->e = b.e;
 	return *this;
 }
 
@@ -89,15 +90,6 @@ int Bilet::getLoc()
 	return this->loc;
 }
 
-void Bilet::setNumeEveniment(string NumeEveniment)
-{
-	this->nume_eveniment = NumeEveniment;
-}
-
-string Bilet::getNumeEveniment()
-{
-	return this->nume_eveniment;
-}
 
 void Bilet::setZona(char* zonaNoua)
 {
@@ -118,49 +110,46 @@ char* Bilet::getZona()
 
 int Bilet::BileteDisponibile(Bilet& b)
 {
-	if (b.id_bilet < e->getBileteDisp())
-		return e->getBileteDisp() - b.id_bilet;
+	if (b.id_bilet < e.getBileteDisp())
+		return e.getBileteDisp() - b.id_bilet;
 	else
 		return 0;
 }
 
 
-string Bilet::ValidareIdUnic(Bilet& b)
+string Bilet::ValidareBilete(Bilet& b)
 {
-	string valid = "Id-ul este valid";
-	string incorect = "Id fals";
-	if (b.id_bilet < e->getBileteDisp())
-		return valid;
-	else
-	{
+	string validare = "bilet valid";
+	string incorect = "bilet invalid";
+	if(b.id_bilet>e.getBileteDisp())
 		return incorect;
-	}
-
+	else
+		return validare;
 }
-
-
 
 
 
 //supraincarcare operatori
 
-Bilet::operator string()
-{
-	return  nume_eveniment;
-}
-
-
 Bilet Bilet::operator--(int i)
 {
 	Bilet copie = *this;
-	this->loc--;
+	this->id_bilet--;
 	return copie;
 }
+
+
+Bilet::operator int()
+{
+	return id_bilet;
+}
+
+
+
 
 istream& operator >> (istream& in, Bilet& b)
 {
 	in >> b.loc;
-	in >> b.nume_eveniment;
 
 	delete[] b.zona;
 	char sir[100];
@@ -175,7 +164,6 @@ ostream& operator<<(ostream& out, Bilet b)
 {
 	out << b.id_bilet << endl;
 	out << b.loc << endl;
-	out << b.nume_eveniment << endl;
 	if (b.zona != nullptr)
 		out << b.zona << endl;
 	out << endl;
