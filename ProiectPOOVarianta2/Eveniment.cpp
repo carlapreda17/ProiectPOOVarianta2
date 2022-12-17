@@ -145,10 +145,12 @@ int Eveniment::getBileteDisp()
 	 return copie;
  }
 
+
+ //citire_si_afisare
  istream&  operator>>(istream& in, Eveniment& f)
  {
 	cout<<"Nume locatie : ";
-	 in >> f.locatie;
+	in >> f.locatie;
 	 cout << "Data eveniment: ";
 	 in >> f.data;
 	 cout << "Ora eveniment: ";
@@ -157,6 +159,7 @@ int Eveniment::getBileteDisp()
 	 in >> f.nume_eveniment;
 	 cout << "Bilete disponibile ";
 	 in >> f.bilete_disponibile;
+	 cout << endl;
 	 return in;
  }
  ostream& operator<<(ostream& out, Eveniment f)

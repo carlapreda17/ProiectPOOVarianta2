@@ -6,6 +6,8 @@ using namespace std;
 
 int Bilet::bilete_totale = 0;
 
+//constructori
+
 Bilet::Bilet()
 {
 	Bilet::bilete_totale++;
@@ -40,7 +42,7 @@ Bilet:: Bilet (const Bilet& b)
 	this->e = b.e;
 }
 
-
+//destructor
 Bilet::~Bilet()
 {
 	delete[] this->zona;
@@ -145,7 +147,7 @@ Bilet::operator int()
 }
 
 
-
+//citire+afisare
 
 istream& operator >> (istream& in, Bilet& b)
 {

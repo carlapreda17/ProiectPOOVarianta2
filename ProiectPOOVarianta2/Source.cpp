@@ -13,9 +13,6 @@ int main()
 	cout << e1;
 
 
-	//Bilet b1;
-	//cin >> b1;
-	//cout << b1;
 
 
 

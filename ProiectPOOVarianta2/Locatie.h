@@ -17,7 +17,7 @@ public:
 	~Locatie();
 	Locatie& operator=(const Locatie& l);
 
-
+	//setteri+getteri
 	void setIdLocatie(int id_loc);
 	int getIdLocatie();
 	void setNrRanduri(int nrRanduri);
@@ -26,14 +26,15 @@ public:
 	int* getNrLocuriPeRand();
 	int getNrMaximLocuri();
 
-
+	//metode
 	bool validareNrLocuri();
-	int** MatriceLocuri(int nr_randuri, int* nr_locuri_rand);
+	int** MatriceLocuri();
 
+	//operatori
 	int operator[](int index);
 	bool operator!();
 
-
+	//citire_afisare
 	friend istream& operator>>(istream& in, Locatie& l);
 	friend ostream& operator<<(ostream& out, Locatie l);
 	
